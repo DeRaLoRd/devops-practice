@@ -29,7 +29,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: sentrim-binary
-          path: ./usr/bin/sentrim
+          path: usr/bin/sentrim
           retention-days: 1
 
   Test:
@@ -53,11 +53,7 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: sentrim-binary
-          path: plain/folder/path
-
-      - name: List dir
-        run: tree
-        working-directory: .
+          path: usr/bin
 
       - name: Test if download successful
         run: ./sentrim "test. test testt. lol"
