@@ -3,7 +3,7 @@ Version: 1.0
 Architecture: amd64
 Priority: optional
 Depends: g++, make, libc6
-Maintainers: DeRaLoRd <vastaras2004@yandex.ru>
+Maintainer: DeRaLoRd <vastaras2004@yandex.ru>
 Description: A sentence trimmer
  Removes words that are shorter than the average length of the word in the
  sentence from said sentence
