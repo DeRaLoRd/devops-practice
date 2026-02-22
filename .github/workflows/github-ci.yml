@@ -46,19 +46,19 @@ jobs:
           sudo apt-get install -y build-essential g++ make tree
 
       - name: Create usr/bin/ directory
-        run: mkdir -p omg-bruh/no-way
+        run: mkdir -p usr/bin
         working-directory: .
 
       - name: Download binary from artifact
         uses: actions/download-artifact@v4
         with:
           name: sentrim-binary
-          path: ./usr/bin
+          path: plain/folder/path
 
-      - name: List file system again
+      - name: List dir
         run: tree
         working-directory: .
 
-      - name: Test download success
+      - name: Test if download successful
         run: ./sentrim "test. test testt. lol"
         working-directory: ./usr/bin
