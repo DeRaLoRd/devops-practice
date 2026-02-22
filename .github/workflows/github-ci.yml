@@ -26,3 +26,13 @@ jobs:
         run: |
           g++ --version
           make --version
+
+      - name: Build program
+        run: make
+        working-directory: ./src
+
+      - name: TEST GITHUB ACTIONS 3
+        run: |
+          echo "Trying to run this stuff"
+          ./sentrim "l ll lll. llll l ll lll l. ll."
+        working-directory: ./usr/bin
