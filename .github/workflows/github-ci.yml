@@ -55,6 +55,10 @@ jobs:
           name: sentrim-binary
           path: usr/bin
 
-      - name: Test if download successful
-        run: ./sentrim "test. test testt. lol"
+      - name: Give permissions to binary
+        run: chmod +x sentrim
+        working-directory: ./usr/bin
+
+      - name: Test binary
+        run: ./sentrim "lol three bab bab poooo. interpolation of bomboclats"
         working-directory: ./usr/bin
