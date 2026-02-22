@@ -21,7 +21,7 @@ jobs:
 
       - name: Build program
         run: |
-          ls -la
+          mkdir -p ../usr/bin
           make
         working-directory: ./src
 
@@ -45,14 +45,14 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y build-essential g++ make
 
-      - name: List file system
-        run: ls -la
+      - name: Create usr/bin/ directory
+        run: mkdir -p ./usr/bin
 
       - name: Download binary from artifact
         uses: actions/download-artifact@v4
         with:
           name: sentrim-binary
-          path: ./unethically-named-folder/poop
+          path: ./usr/bin
 
       - name: List file system again
         run: ls -la
