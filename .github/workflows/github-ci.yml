@@ -14,23 +14,10 @@ jobs:
       - name: Clone repo
         uses: actions/checkout@v4
 
-      - name: TEST GITHUB ACTIONS
-        run: ls -la
-
       - name: Install dependencies
         run: |
           sudo apt-get update
           sudo apt-get install -y build-essential g++ make
-
-      - name: TEST GITHUB ACTIONS 2
-        run: |
-          g++ --version
-          make --version
-
-      - name: Test sabotage attempt
-        run: |
-          cd DEBIAN
-          ls -la
 
       - name: Build program
         run: |
@@ -38,17 +25,11 @@ jobs:
           make
         working-directory: ./src
 
-      - name: TEST GITHUB ACTIONS 3
-        run: |
-          echo "Test call"
-          ./sentrim "l ll lll. ll. lll l ll"
-        working-directory: ./usr/bin
-
       - name: Upload binary to artifact
         uses: actions/upload-artifact@v4
         with:
           name: sentrim-binary
-          path: /usr/bin/sentrim
+          path: ./usr/bin/sentrim
           retention-days: 1
 
   Test:
@@ -68,4 +49,8 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: sentrim-binary
-          path: /usr/bin/
+          path: ./usr/bin/
+
+      - name: Test download success
+        run: ./sentrim "test. test testt. lol"
+        working-directory: ./usr/bin
