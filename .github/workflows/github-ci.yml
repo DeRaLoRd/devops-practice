@@ -59,6 +59,6 @@ jobs:
 
       - name: Download binary from artifact
         uses: actions/download-artifact@v4
-          with:
-            name: sentrim-binary
-            path: /usr/bin/
+        with:
+          name: sentrim-binary
+          path: /usr/bin/
