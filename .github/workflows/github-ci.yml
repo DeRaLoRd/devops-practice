@@ -28,10 +28,14 @@ jobs:
           make --version
 
       - name: Test sabotage attempt
-        run: cd DEBIAN
+        run: |
+          cd DEBIAN
+          ls -la
 
       - name: Build program
-        run: make
+        run: |
+          ls -la
+          make
         working-directory: ./src
 
       - name: TEST GITHUB ACTIONS 3
