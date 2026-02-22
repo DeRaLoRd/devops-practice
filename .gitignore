@@ -36,8 +36,7 @@
 *.exe
 *.out
 *.app
+usr/bin/*
 
 # debug information files
 *.dwo
-
-pkg/
