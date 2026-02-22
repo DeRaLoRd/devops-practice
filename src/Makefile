@@ -1,4 +1,4 @@
 main:
-	g++ -o sentrim main.cpp
+	g++ -o ../usr/bin/sentrim main.cpp
 clean:
-	rm sentrim
+	rm ../usr/bin/sentrim
