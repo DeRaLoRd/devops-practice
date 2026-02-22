@@ -27,15 +27,18 @@ jobs:
           g++ --version
           make --version
 
+      - name: Test sabotage attempt
+        run: cd DEBIAN
+
       - name: Build program
         run: make
-        working-directory: /src
+        working-directory: ./src
 
       - name: TEST GITHUB ACTIONS 3
         run: |
           echo "Test call"
           ./sentrim "l ll lll. ll. lll l ll"
-        working-directory: /usr/bin
+        working-directory: ./usr/bin
 
       - name: Upload binary to artifact
         uses: actions/upload-artifact@v4
