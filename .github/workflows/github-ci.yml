@@ -52,6 +52,7 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: sentrim-binary
+          path: ./unethically-named-folder/poop
 
       - name: List file system again
         run: ls -la
