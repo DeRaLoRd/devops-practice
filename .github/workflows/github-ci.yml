@@ -43,12 +43,13 @@ jobs:
       - name: Install dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y build-essential g++ make
+          sudo apt-get install -y build-essential g++ make tree
 
       - name: Create usr/bin/ directory
         run: |
           cd ./src
           mkdir -p ./usr/bin
+          tree
 
       - name: Download binary from artifact
         uses: actions/download-artifact@v4
