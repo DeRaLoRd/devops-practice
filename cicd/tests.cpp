@@ -29,16 +29,10 @@ int main(int argc, char *argv[])
 	result += run_test(
 		"Test 3",
 		"",
-		"wrong test text"
+		""
 	);
 
-	result += run_test(
-		"Test 4",
-		"lol",
-		"not lol"
-	);
-
-	return 0;
+	return result;
 }
 
 int run_test(string name, string input, string expect)
