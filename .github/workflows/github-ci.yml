@@ -85,7 +85,7 @@ jobs:
           path: usr/bin
 
       - name: Build package
-        run: ./deploy.sh "sentrim_1.0_linux_amd64.deb"
+        run: ./deploy.sh "../sentrim_1.0_linux_amd64.deb"
         working-directory: ./cicd
 
       - name: Upload package
