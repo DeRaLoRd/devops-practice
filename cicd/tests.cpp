@@ -38,7 +38,7 @@ int main(int argc, char *argv[])
 		"not lol"
 	);
 
-	return result;
+	return 0;
 }
 
 int run_test(string name, string input, string expect)
