@@ -72,5 +72,30 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Placeholder step
-        run: echo "DEPLOYMENT OVER 9000"
+      - name: Clone repo
+        uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y dpkg-dev
+
+      - name: Create usr/bin directory
+        run: mkdir -p usr/bin
+        working-directory: .
+
+      - name: Download binary from artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: sentrim-binary
+          path: usr/bin
+
+      - name: Build package
+        run: dpkg-deb --build . sentrim_1.0_linux_amd64.deb
+        working-directory: .
+
+      - name: Upload package
+        uses: actions/upload-artifact@v4
+        with:
+          name: sentrim-deb-package
+          path: sentrim_1.0_linux_amd64.deb
