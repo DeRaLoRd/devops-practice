@@ -20,13 +20,25 @@ int main(int argc, char *argv[])
 		"not. question. "
 	);
 
+	result += run_test(
+		"Test 2",
+		". .. f .see omg to lol.",
+		"f. see omg lol. "
+	);
+
+	result += run_test(
+		"Test 3",
+		"",
+		""
+	);
+
 	return result;
 }
 
 int run_test(string name, string input, string expect)
 {
 	string command = "echo \"" + input + "\" | ../usr/bin/sentrim";
-	cout << "EXECUTING COMMAND: " << command << '\n';
+	//cout << "EXECUTING COMMAND: " << command << '\n';
 	FILE* pipe = popen(command.c_str(), "r");
 	if (!pipe) {
 		throw runtime_error("popen failed");
@@ -41,8 +53,8 @@ int run_test(string name, string input, string expect)
 
 	// remove '\n' from result
 	result = result.substr(0, result.find('\n'));
-	cout << "got: " << result << '\n';
-	cout << "expected: " << expect << '\n';
+	//cout << "got: " << result << '\n';
+	//cout << "expected: " << expect << '\n';
 	if (!result.compare(expect)) {
 		cout << name << " passed\n";
 		return 0;
