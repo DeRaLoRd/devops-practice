@@ -59,6 +59,12 @@ jobs:
         run: chmod +x sentrim
         working-directory: ./usr/bin
 
-      - name: Test binary
-        run: ./sentrim "lol three bab bab poooo. interpolation of bomboclats"
-        working-directory: ./usr/bin
+      - name: Compile tests
+        
+
+  Deploy:
+    needs: Test
+    runs-on: ubuntu-latest
+
+    steps:
+      
