@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <unistd.h>
 using namespace std;
 
 int main(int argc, char *argv[]) 
@@ -9,7 +10,9 @@ int main(int argc, char *argv[])
 	string input_raw;
 
 	if (argc == 1) {
-		cout << "Please input the string (80 character max):\n";
+		if (isatty(STDIN_FILENO)) {
+			cout << "Please input the string (80 character max):\n";
+		}
 		getline(cin, input_raw);
 	}
 	else if (argc == 2) {
