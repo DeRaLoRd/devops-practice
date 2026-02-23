@@ -60,11 +60,17 @@ jobs:
         working-directory: ./usr/bin
 
       - name: Compile tests
-        
+        run: make
+        working-directory: ./cicd
+
+      - name: Run tests
+        run: ./run-tests.sh
+        working-directory: ./cicd
 
   Deploy:
     needs: Test
     runs-on: ubuntu-latest
 
     steps:
-      
+      - name: Placeholder step
+        run: echo "DEPLOYMENT OVER 9000"

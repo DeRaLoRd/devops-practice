@@ -37,6 +37,7 @@
 *.out
 *.app
 usr/bin/*
+cicd/sentrim-tests
 
 # debug information files
 *.dwo
