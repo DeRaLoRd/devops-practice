@@ -32,6 +32,12 @@ int main(int argc, char *argv[])
 		"wrong test text"
 	);
 
+	result += run_test(
+		"Test 4",
+		"lol",
+		"not lol"
+	);
+
 	return result;
 }
 
