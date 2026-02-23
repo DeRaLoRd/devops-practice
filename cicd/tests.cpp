@@ -29,7 +29,7 @@ int main(int argc, char *argv[])
 	result += run_test(
 		"Test 3",
 		"",
-		""
+		"wrong test text"
 	);
 
 	return result;
