@@ -101,3 +101,15 @@ jobs:
     steps:
       - name: Ensure docker is available
         run: docker --version
+
+      - name: Clone repo
+        uses: actions/checkout@v4
+
+      - name: Download deb-package
+        uses: actions/download-artifact@v4
+        with:
+          name: sentrim-deb-package
+          path: .
+
+      - name: List directory
+        run: ll
