@@ -112,4 +112,4 @@ jobs:
           path: .
 
       - name: List directory
-        run: ll
+        run: ls -la
