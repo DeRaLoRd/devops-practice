@@ -111,5 +111,8 @@ jobs:
           name: sentrim-deb-package
           path: .
 
-      - name: List directory
-        run: ls -la
+      - name: Build docker image
+        run: docker build -t deralord/sentrim .
+
+      - name: Ensure image is out there
+        run: docker images
