@@ -116,3 +116,6 @@ jobs:
 
       - name: Ensure image is out there
         run: docker images
+
+      - name: Deploy on docker container
+        run: docker run deralord/sentrim "oh my god i cant believe this. yo i CANT believe this."
