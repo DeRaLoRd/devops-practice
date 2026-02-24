@@ -116,12 +116,8 @@ jobs:
           docker build -t ${{ vars.DOCKER_USERNAME }}/sentrim:1.0.0 .
           docker tag ${{ vars.DOCKER_USERNAME }}/sentrim:1.0.0 ${{ vars.DOCKER_USERNAME }}/sentrim:latest
 
-      - name: Ensure image is out there
-        run: docker images
-
       - name: Deploy on docker container
         run: docker run ${{ vars.DOCKER_USERNAME }}/sentrim "oh my god i cant believe this. yo i CANT believe this."
-        #run: docker run deralord/sentrim
 
       - name: Log in DockerHub
         run: docker login -u ${{ vars.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
