@@ -10,4 +10,5 @@ RUN dpkg -i $PACKAGE_NAME
 RUN apt-get -f install -y
 RUN rm $PACKAGE_NAME
 
-ENTRYPOINT ["sentrim"]
+CMD ["ls", "-la", "/usr/bin"]
+#ENTRYPOINT ["sentrim"]
