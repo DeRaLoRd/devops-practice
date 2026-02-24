@@ -1,12 +1,13 @@
 ARG PACKAGE_NAME="sentrim_1.0_linux_amd64.deb"
 
 FROM ubuntu:latest
+ARG PACKAGE_NAME
 WORKDIR /tmp
 RUN apt-get update
 RUN apt-get install -y dpkg-dev
-COPY ./${PACKAGE_NAME} .
-RUN dpkg -i ${PACKAGE_NAME}
+COPY ./$PACKAGE_NAME /tmp/
+RUN dpkg -i $PACKAGE_NAME
 RUN apt-get -f install -y
-RUN rm ${PACKAGE_NAME}
+RUN rm $PACKAGE_NAME
 
 ENTRYPOINT ["sentrim"]
