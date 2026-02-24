@@ -142,4 +142,4 @@ jobs:
           tags: |
             ${{ vars.DOCKER_USERNAME }}/sentrim:1.0
             ${{ vars.DOCKER_USERNAME }}/sentrim:latest
-          annotatons: ${{ steps.meta.outputs.annotations }}
+          annotations: ${{ steps.meta.outputs.annotations }}
