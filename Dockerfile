@@ -8,8 +8,7 @@ RUN apt-get install -y dpkg-dev
 COPY ./$PACKAGE_NAME /tmp/
 RUN dpkg -i $PACKAGE_NAME
 RUN apt-get -f install -y
-RUN rm $PACKAGE_NAME
-# for some AWESOME reason this stuff comes WITHOUT execute permissions so
+# For some AWESOME reason this stuff comes WITHOUT execute permissions so
 RUN chmod +x /usr/bin/sentrim
 
 #CMD ["ls", "-la", "/usr/bin"]
