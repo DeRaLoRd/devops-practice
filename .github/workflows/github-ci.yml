@@ -123,3 +123,23 @@ jobs:
       - name: Deploy on docker container
         run: docker run deralord/sentrim "oh my god i cant believe this. yo i CANT believe this."
         #run: docker run deralord/sentrim
+
+      - name: Get GitHub repo metadata
+        uses: docker/metadata-action@v5
+        with:
+          images: ${{ vars.DOCKER_USERNAME }}/sentrim
+
+      - name: Log in DockerHub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ vars.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+
+      - name: Deploy on DockerHub
+        uses: docker/build-push-action@v6
+        with:
+          push: ${{ github.event_name != 'pull_request' }}
+          tags: |
+            ${{ vars.DOCKER_USERNAME }}/sentrim:1.0
+            ${{ vars.DOCKER_USERNAME }}/sentrim:latest
+          annotatons: ${{ steps.meta.outputs.annotations }}
