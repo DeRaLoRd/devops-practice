@@ -112,16 +112,15 @@ jobs:
           path: .
 
       - name: Build docker image
-        run: docker build -t deralord/sentrim .
+        run: |
+          docker build -t ${{ vars.DOCKER_USERNAME }}/sentrim:1.0.0 .
+          docker tag ${{ vars.DOCKER_USERNAME }}/sentrim:1.0.0 ${{ vars.DOCKER_USERNAME }}/sentrim:latest
 
       - name: Ensure image is out there
         run: docker images
 
-      - name: Test runnability of docker cont
-        run: docker run hello-world
-
       - name: Deploy on docker container
-        run: docker run deralord/sentrim "oh my god i cant believe this. yo i CANT believe this."
+        run: docker run ${{ vars.DOCKER_USERNAME }}/sentrim "oh my god i cant believe this. yo i CANT believe this."
         #run: docker run deralord/sentrim
 
       - name: Log in DockerHub
@@ -129,5 +128,4 @@ jobs:
 
       - name: Deploy on DockerHub
         run: |
-          docker push ${{ vars.DOCKER_USERNAME }}/sentrim:1.0.0
-          docker push ${{ vars.DOCKER_USERNAME }}/sentrim:latest
+          docker push -a ${{ vars.DOCKER_USERNAME }}/sentrim
