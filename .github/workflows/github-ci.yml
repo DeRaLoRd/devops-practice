@@ -121,4 +121,5 @@ jobs:
         run: docker run hello-world
 
       - name: Deploy on docker container
-        run: docker run deralord/sentrim "oh my god i cant believe this. yo i CANT believe this."
+        #run: docker run deralord/sentrim "oh my god i cant believe this. yo i CANT believe this."
+        run: docker run deralord/sentrim
