@@ -113,7 +113,7 @@ jobs:
 
       - name: Build docker image
         run: |
-          docker build -t ${{ vars.DOCKER_USERNAME }}/sentrim:1.0.0 .
+          docker build -t ${{ vars.DOCKER_USERNAME }}/sentrim:1.0.0 ./cicd
           docker tag ${{ vars.DOCKER_USERNAME }}/sentrim:1.0.0 ${{ vars.DOCKER_USERNAME }}/sentrim:latest
 
       - name: Deploy on docker container
