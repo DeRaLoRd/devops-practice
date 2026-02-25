@@ -38,6 +38,7 @@
 *.app
 usr/bin/*
 cicd/sentrim-tests
+*.deb
 
 # debug information files
 *.dwo
