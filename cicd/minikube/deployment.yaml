@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sentrim-deployment
+  labels:
+    app: sentrim
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sentrim
+  template:
+    metadata:
+      labels:
+        app: sentrim
+    spec:
+      containers:
+      - name: sentrim-container
+        image: vadimzakharov9243/myapp:latest
+        ports:
+        - containerPort: 80

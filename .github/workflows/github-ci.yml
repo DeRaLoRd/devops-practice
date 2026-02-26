@@ -1,4 +1,4 @@
-name: CI-Pipeline
+name: CI/CD-Pipeline
 
 on:
   push:
@@ -119,9 +119,15 @@ jobs:
       - name: Deploy on docker container
         run: docker run ${{ vars.DOCKER_USERNAME }}/sentrim "oh my god i cant believe this. yo i CANT believe this."
 
+      - name: Build minikube-compatible docker image
+        run: |
+          docker build -t ${{ vars.DOCKER_USERNAME }}/sentrim-minikube:1.0.0 -f cicd/minikube/Dockerfile.minikube .
+          docker tag ${{ vars.DOCKER_USERNAME }}/sentrim-minikube:1.0.0 ${{ vars.DOCKER_USERNAME }}/sentrim-minikube:latest
+
       - name: Log in DockerHub
         run: docker login -u ${{ vars.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Deploy on DockerHub
         run: |
           docker push -a ${{ vars.DOCKER_USERNAME }}/sentrim
+          docker push -a ${{ vars.DOCKER_USERNAME }}/sentrim-minikube
