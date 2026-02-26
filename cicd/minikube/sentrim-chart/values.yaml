@@ -1,0 +1,8 @@
+app:
+  name: sentrim
+
+image:
+  name: deralord/sentrim-minikube
+  tag: latest
+
+replicaCount: 1
