@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: sentrim-container
-        image: vadimzakharov9243/myapp:latest
+        image: deralord/sentrim-minikube:latest
         ports:
         - containerPort: 80
